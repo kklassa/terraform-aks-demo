@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       image:
-        description: 'Which component's image should be pushed'
+        description: 'Component'
         required: true
         default: 'webapp'
         type: choice
