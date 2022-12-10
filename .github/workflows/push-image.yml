@@ -2,7 +2,7 @@ name: 'Build and Push Image'
 on:
   workflow_dispatch:
     inputs:
-      logLevel:
+      image:
         description: 'Log level'
         required: true
         default: 'warning'
