@@ -31,6 +31,9 @@ jobs:
           registry: quay.io
           username: ${{ secrets.QUAY_USERNAME }}
           password: ${{ secrets.QUAY_TOKEN }}
+      - name: 'Change Dockefile context'
+        run: |
+          cd demo-apps/demo-api/
       - name: 'Build and push image'
         uses: docker/build-push-action@v3
         with:
@@ -38,4 +41,3 @@ jobs:
           # tags: quay.io/kklassa/k8s-demo-${{ inputs.image }}:latest
           # file: ${pwd}/demo-apps/demo-${{ inputs.image }}/Dockerfile
           tags: quay.io/kklassa/k8s-demo-api:latest
-          file: demo-apps/demo-api/Dockerfile
