@@ -1,0 +1,7 @@
+.vscode
+
+# demo-api
+venv
+
+# demo-webapp
+node_modules
