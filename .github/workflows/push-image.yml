@@ -9,6 +9,10 @@ on:
     #     options:
     #       - webapp
     #       - api
+    inputs:
+      test:
+        type: boolean
+        default: True
 jobs:
   build:
     name: 'Build'
