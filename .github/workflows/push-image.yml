@@ -41,3 +41,5 @@ jobs:
           # tags: quay.io/kklassa/k8s-demo-${{ inputs.image }}:latest
           # file: ${pwd}/demo-apps/demo-${{ inputs.image }}/Dockerfile
           tags: quay.io/kklassa/k8s-demo-api:latest
+          file: demo-apps/demo-api/Dockerfile
+          context: ./demo-apps/demo-api
