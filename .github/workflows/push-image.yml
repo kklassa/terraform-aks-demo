@@ -1,18 +1,16 @@
 name: 'Build and Push Image'
 on:
   workflow_dispatch:
-    # inputs:
-    #   image:
-    #     type: choice
-    #     description: 'Which component's image should be pushed'
-    #     required: true
-    #     options:
-    #     - webapp
-    #     - api
     inputs:
-      test:
-        type: boolean
-        default: True
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+        - info
+        - warning
+        - debug
 jobs:
   build:
     name: 'Build'
