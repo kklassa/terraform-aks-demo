@@ -5,6 +5,7 @@ on:
       image:
         type: choice
         description: 'Which component's image should be pushed'
+        required: true
         options:
           - webapp
           - api
@@ -40,5 +41,5 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: quay.io/kklassa/k8s-demo-${{ github.event.inputs.choice }}:latest
-          file: ${pwd}/demo-apps/demo-${{ github.event.inputs.choice }}/Dockerfile
+          tags: quay.io/kklassa/k8s-demo-${{ inputs.choice }}:latest
+          file: ${pwd}/demo-apps/demo-${{ inputs.choice }}/Dockerfile
