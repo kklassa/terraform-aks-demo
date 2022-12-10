@@ -7,8 +7,8 @@ on:
     #     description: 'Which component's image should be pushed'
     #     required: true
     #     options:
-    #       - webapp
-    #       - api
+    #     - webapp
+    #     - api
     inputs:
       test:
         type: boolean
@@ -38,4 +38,4 @@ jobs:
           # tags: quay.io/kklassa/k8s-demo-${{ inputs.image }}:latest
           # file: ${pwd}/demo-apps/demo-${{ inputs.image }}/Dockerfile
           tags: quay.io/kklassa/k8s-demo-api:latest
-          file: $(pwd)/demo-apps/demo-api/Dockerfile
+          file: demo-apps/demo-api/Dockerfile
