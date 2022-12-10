@@ -5,12 +5,11 @@ on:
       image:
         description: 'Log level'
         required: true
-        default: 'warning'
+        default: 'webapp'
         type: choice
         options:
-        - info
-        - warning
-        - debug
+        - webapp
+        - api
 jobs:
   build:
     name: 'Build'
