@@ -1,14 +1,14 @@
 name: 'Build and Push Image'
 on:
   workflow_dispatch:
-    inputs:
-      image:
-        type: choice
-        description: 'Which component's image should be pushed'
-        required: true
-        options:
-          - webapp
-          - api
+    # inputs:
+    #   image:
+    #     type: choice
+    #     description: 'Which component's image should be pushed'
+    #     required: true
+    #     options:
+    #       - webapp
+    #       - api
 jobs:
   build:
     name: 'Build'
@@ -21,16 +21,6 @@ jobs:
       - name: 'Set up Docker Buildx'
         id: buildx
         uses: docker/setup-buildx-action@v2
-      # - name: 'Choose component registry'
-      #   id: registry
-      #   run: |
-      #     if [[ "${{ github.event.inputs.choice }}" == "webapp" ]]; then
-      #       echo "Will push to ${{ github.event.inputs.choice }} registry."
-      #       echo "::set-output name=component::webapp"
-      #     elif [[ "${{ github.event.inputs.choice }}" == "api" ]]; then
-      #       echo "Will push to ${{ github.event.inputs.choice }} registry."
-      #       echo "::set-output name=component::api"
-      #     fi
       - name: 'Login to Quay container registry'
         uses: docker/login-action@v2
         with:
@@ -41,5 +31,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: quay.io/kklassa/k8s-demo-${{ inputs.choice }}:latest
-          file: ${pwd}/demo-apps/demo-${{ inputs.choice }}/Dockerfile
+          # tags: quay.io/kklassa/k8s-demo-${{ inputs.image }}:latest
+          # file: ${pwd}/demo-apps/demo-${{ inputs.image }}/Dockerfile
+          tags: quay.io/kklassa/k8s-demo-api:latest
+          file: ${pwd}/demo-apps/demo-api/Dockerfile
