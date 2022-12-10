@@ -35,8 +35,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          # tags: quay.io/kklassa/k8s-demo-${{ inputs.image }}:latest
-          # file: ${pwd}/demo-apps/demo-${{ inputs.image }}/Dockerfile
-          tags: quay.io/kklassa/k8s-demo-api:latest
-          file: demo-apps/demo-api/Dockerfile
-          context: ./demo-apps/demo-api
+          tags: quay.io/kklassa/k8s-demo-${{ inputs.image }}:latest
+          file: demo-apps/demo-${{ inputs.image }}/Dockerfile
+          context: ./demo-apps/demo-${{ inputs.image }}
