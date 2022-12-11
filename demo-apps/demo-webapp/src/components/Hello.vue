@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onBeforeMount } from 'vue'
 import axios from 'axios'
 
 
@@ -7,7 +7,7 @@ const podName = import.meta.env.VITE_HOSTNAME ? import.meta.env.VITE_HOSTNAME : 
 let apiPod = ref(null);
 let isReady = ref(null);
 
-onMounted(async () => {
+onBeforeMount(async () => {
     try {
         console.log(`Attempting to fetch data from ${import.meta.env.VITE_API_URL}`)
         isReady.value = false;
