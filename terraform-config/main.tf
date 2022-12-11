@@ -159,34 +159,15 @@ resource "kubernetes_deployment" "demo_webapp_deploy" {
           port {
             container_port = "5173"
           }
+          env {
+            name  = "API_URL"
+            value = local.api_lb_ip
+          }
         }
       }
     }
   }
-  depends_on = [kubernetes_service.demo_api_clusterip_svc]
-}
-
-resource "kubernetes_service" "demo_webapp_clusterip_svc" {
-  metadata {
-    name      = "webapp-clusterip-svc"
-    namespace = var.namespace
-  }
-
-  spec {
-    type = "ClusterIP"
-
-    port {
-      port        = 5173
-      target_port = 5173
-    }
-
-    selector = {
-      app       = "demo"
-      tier      = "frontend"
-      component = "webapp"
-    }
-  }
-  depends_on = [kubernetes_deployment.demo_webapp_deploy]
+  depends_on = [kubernetes_service.demo_api_lb_svc]
 }
 
 resource "kubernetes_service" "demo_webapp_lb_svc" {
