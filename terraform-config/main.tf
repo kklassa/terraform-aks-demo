@@ -133,12 +133,12 @@ resource "kubernetes_deployment" "demo_webapp_deploy" {
   }
 
   spec {
-    replicas = var.api_replicas
+    replicas = var.webapp_replicas
 
     selector {
       match_labels = {
         app       = "demo"
-        tier      = "fronted"
+        tier      = "frontend"
         component = "webapp"
       }
     }
@@ -147,7 +147,7 @@ resource "kubernetes_deployment" "demo_webapp_deploy" {
       metadata {
         labels = {
           app       = "demo"
-          tier      = "fronted"
+          tier      = "frontend"
           component = "webapp"
         }
       }
