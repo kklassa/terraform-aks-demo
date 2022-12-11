@@ -2,8 +2,9 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import os
 
+
 try:
-    pod_name = os.environ['POD_NAME']
+    pod_name = os.environ['HOSTNAME']
 except KeyError:
     pod_name = 'unknown'
 
