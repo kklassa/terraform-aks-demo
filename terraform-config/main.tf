@@ -157,13 +157,13 @@ resource "kubernetes_deployment" "demo_webapp_deploy" {
           name  = "demo-webapp"
           image = var.webapp_image
           port {
-            container_port = "3000"
+            container_port = "5173"
           }
         }
       }
     }
   }
-  depends_on = [kubernetes_namespace.demo_ns]
+  depends_on = [kubernetes_service.demo_api_clusterip_svc]
 }
 
 resource "kubernetes_service" "demo_webapp_clusterip_svc" {
@@ -176,8 +176,8 @@ resource "kubernetes_service" "demo_webapp_clusterip_svc" {
     type = "ClusterIP"
 
     port {
-      port        = 3000
-      target_port = 3000
+      port        = 5173
+      target_port = 5173
     }
 
     selector = {
@@ -200,7 +200,7 @@ resource "kubernetes_service" "demo_webapp_lb_svc" {
 
     port {
       port        = 80
-      target_port = 3000
+      target_port = 5173
     }
 
     selector = {
