@@ -36,7 +36,7 @@ The demo application constists of two components - an API and a web frontend. To
 
 All the Terraform files are located in the `terraform-config` directory. Let's go over each of them in detail.
 
-> IMPORTANT: In Terraform names of `.tf` files are not important - when you run `terraform apply` in a directory Terraform collects all `.tf` files from that directory into one. It is a good practice to make the configuration more readable by splitting the configuration into multiple files and naming them accordingly - we are going to use standard file names adapted by the community. 
+> NOTE: In Terraform names of `.tf` files are not important - when you run `terraform apply` in a directory Terraform collects all `.tf` files from that directory into one. It is a good practice to make the configuration more readable by splitting the configuration into multiple files and naming them accordingly - we are going to use standard file names adapted by the community. 
 
 ## providers.tf
 
@@ -222,5 +222,5 @@ terraform destroy -auto-approve
 ```
 
 This will get rid of all resources - first it will destroy the Kubernetes objects and then the AKS infrastucture.
-
-*This project was created as a an assignment from System Design and Integration course at Warsaw University of Technology*
+  
+*This project was created as an assignment from System Design and Integration course at Warsaw University of Technology*
