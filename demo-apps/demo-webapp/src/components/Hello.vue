@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue'
 import axios from 'axios'
 
 
-const pod = import.meta.env.VITE_POD_NAME;
+const pod = import.meta.env.HOSTNAME;
 let apiPod = ref(null);
 let isReady = ref(null);
 
