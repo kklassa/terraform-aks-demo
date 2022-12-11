@@ -25,7 +25,7 @@ variable "api_image" {
 
 variable "api_replicas" {
   type    = number
-  default = 1
+  default = 2
 }
 
 variable "webapp_image" {
