@@ -1,6 +1,6 @@
 # terraform-config
 .terraform
-terraform.tfstate
+terraform.tfstate*
 .terraform.tfstate.lock.info
 kubeconfig
 
