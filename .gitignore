@@ -1,4 +1,8 @@
-.vscode
+# terraform-config
+.terraform
+terraform.tfstate
+.terraform.tfstate.lock.info
+kubeconfig
 
 # demo-api
 venv
@@ -6,3 +10,6 @@ __pycache__
 
 # demo-webapp
 node_modules
+
+# IDE
+.vscode
