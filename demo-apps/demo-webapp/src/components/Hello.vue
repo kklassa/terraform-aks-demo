@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue'
 import axios from 'axios'
 
 
-const pod = import.meta.env.HOSTNAME;
+const podName = import.meta.env.VITE_HOSTNAME ? import.meta.env.VITE_HOSTNAME : 'unknown';
 let apiPod = ref(null);
 let isReady = ref(null);
 
@@ -35,7 +35,7 @@ defineProps({
 <template>
     <div class="centered">
       <h1>{{ msg }}</h1>
-      <h2>The name of this pod is {{ pod }}</h2>
+      <h2>The name of this pod is {{ podName }}</h2>
       <h2 v-if="isReady">The name of the API pod is {{ apiPod }}</h2>
     </div>
 </template>
