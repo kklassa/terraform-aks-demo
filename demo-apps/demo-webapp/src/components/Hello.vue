@@ -9,6 +9,7 @@ let isReady = ref(null);
 
 onMounted(async () => {
     try {
+        console.log(`Attempting to fetch data from ${import.meta.env.VITE_API_URL}`)
         isReady.value = false;
         await axios
           .get(import.meta.env.VITE_API_URL)
@@ -21,6 +22,7 @@ onMounted(async () => {
         apiPod.value = 'unavailable';
     }
     finally {
+        console.log(`Data fetching completed, got\n${apiPod.value}`);
         isReady.value = true;
     }
 });
